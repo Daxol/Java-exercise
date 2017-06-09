@@ -6,9 +6,9 @@ package zadaniaOdNowa.zadanie2;
 public class MyClass {
 
     public static void main(String[] args) {
-        saveDataToFile("domy2.txt");
-
-        getDataFromFileAndIncreasePrizeForSecondFloors("domy2.txt")
+//        saveDataToFile("domy2.txt");
+//
+//        getDataFromFileAndIncreasePrizeForSecondFloors("domy2.txt");
     }
 
 }
