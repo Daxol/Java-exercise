@@ -26,6 +26,7 @@ Jeżeli szukanym słowem byłoby "egzamin", to plik wynikowy powinien wyglądać
 1: Ala ma jutro egzamin z biologii.
 3: Eh, jutro kolejny egzamin.
  */
+
 public class MyClass {
     public static void main(String[] args) {
         zapisz("pliki.zadanie2_1.txt", "Ala ma kota \n a ko ma ale \n to jest to \n kot kot kot");
