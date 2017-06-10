@@ -36,32 +36,25 @@ public class MyClass {
     }
 
     private static void emerytura(String nazwaPliku) throws IOException {
-        String name;
-        String age;
-        String gender;
-        String male = "";
-        String female = "";
-        FileWriter fw = new FileWriter("kobiety.txt",true);
-        FileWriter fwM = new FileWriter("mezczyzni.txt",true);
 
-            Scanner file = new Scanner(new BufferedReader(new FileReader(nazwaPliku)));
-            while (file.hasNext()) {
-                name = file.next();
-                name += " " + file.next();
-                gender = file.next();
-                age = file.next();
-                System.out.println(gender);
-                if (gender.equals("M")) {
-                    male += ("\n"+name + " " + (65 - Integer.parseInt(age)));
-                    fwM.write(male);
-                } else {
-                    female +=  "\n"+name + " " + (65 - Integer.parseInt(age));
-                    fw.write(female);
-                }
+        FileWriter fw = new FileWriter("kobiety.txt", true);
+        FileWriter fwM = new FileWriter("mezczyzni.txt", true);
+
+        BufferedReader file = new BufferedReader(new FileReader(nazwaPliku));
+        String line;
+        String[] person;
+        while ((line = file.readLine()) != null) {
+            person = line.split(" ");
+            line = person[0] + " " + person[1] + " " + (65 - Integer.parseInt(person[3])) + "\n";
+            if (person[2].equals("M")) {
+                fwM.write(line);
+            } else {
+                fw.write(line);
             }
+        }
 
-       fw.close();
-       fwM.close();
+        fw.close();
+        fwM.close();
 
     }
 }
