@@ -28,7 +28,8 @@ public class MyClass {
         boolean fileExist = new File(nazwaWe).isFile();
         String line;
         char[] lineChars;
-
+        int sumCharacters = 0;
+        int lineCounter = 0;
         LineNumberReader file = null;
         FileWriter writer = new FileWriter(nazwaWy);
 
@@ -38,7 +39,9 @@ public class MyClass {
             try {
 
                 while ((line = file.readLine()) != null) {
+                    lineCounter++;
                     lineChars = line.toCharArray();
+                    sumCharacters += lineChars.length;
                     if (file.getLineNumber() % 2 == 0) {
                         line = line.replaceFirst(fraza, fraza.toUpperCase());
                         writer.write(line);
@@ -54,6 +57,7 @@ public class MyClass {
                     writer.write("\n");
                 }
             } catch (IOException exception) {
+                writer.write(Float.toString((float) sumCharacters / lineCounter));
                 file.close();
             }
         } else {
